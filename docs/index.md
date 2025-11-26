@@ -209,6 +209,20 @@
   node --version
 
 
+# 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
+### Works on: **Windows (PowerShell)** + **Linux/macOS (bash/zsh)**  
+### Includes: Claude-Code, Claude-Code-Router (CCR), Gemini, OpenAI, Qwen, Grok, OpenRouter & MCP Server Guide
+
+---
+
+# 📌 1. Requirements
+
+- **Node.js v18+** → https://nodejs.org  
+  Check:  
+  ```bash
+  node --version
+
+
 
 
 # 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
