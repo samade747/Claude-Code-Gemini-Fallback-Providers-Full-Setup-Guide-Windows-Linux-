@@ -176,9 +176,9 @@
       <div class="navbar">
         <a href="#guide">Guide</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-       ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
+        <a href="#contact">Contact</a>      
       </div>
+       ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
 
       <!-- social links -->
       <div class="social-links">
