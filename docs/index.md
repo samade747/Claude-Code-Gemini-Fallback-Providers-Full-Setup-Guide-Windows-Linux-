@@ -178,7 +178,7 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>      
       </div>
-       ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
+       
 
       <!-- social links -->
       <div class="social-links">
@@ -193,7 +193,7 @@
     </div>
   </div>
 </div>
-
+![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
 ---
 
 # 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
