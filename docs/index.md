@@ -177,6 +177,7 @@
         <a href="#guide">Guide</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <a> ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)</a>
       </div>
 
       <!-- social links -->
