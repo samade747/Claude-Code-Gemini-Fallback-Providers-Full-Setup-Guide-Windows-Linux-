@@ -1,20 +1,31 @@
-🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide (Windows + Linux)
-Includes: Claude-Code, Claude-Code-Router (CCR), Gemini config, Fallback (OpenAI/Qwen/Grok/OpenRouter), and MCP server integration.
-📌 1. Requirements
+README.md
+# 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
+### Works on: **Windows (PowerShell)** + **Linux/macOS (bash/zsh)**  
+### Includes: Claude-Code, Claude-Code-Router (CCR), Gemini, OpenAI, Qwen, Grok, OpenRouter & MCP Server Guide
 
-Node.js v18+ → https://nodejs.org
+---
 
-Check: node --version
+# 📌 1. Requirements
+
+- **Node.js v18+** → https://nodejs.org  
+  Check:  
+  ```bash
+  node --version
+
 
 npm (comes with Node.js)
 
-API keys for:
+API keys:
 
 Google Gemini → https://aistudio.google.com
 
 (Optional) OpenAI, Qwen, Grok (xAI), OpenRouter
 
-Windows PowerShell or Linux bash/zsh
+Terminal:
+
+Windows → PowerShell
+
+Linux/macOS → bash/zsh
 
 🟦 2. Windows Setup (PowerShell)
 ✅ STEP 1 — Install tools
@@ -26,13 +37,10 @@ mkdir "$env:USERPROFILE\.claude-code-router"
 mkdir "$env:USERPROFILE\.claude"
 
 ✅ STEP 3 — Create config.json
-
-Run:
-
 notepad "$env:USERPROFILE\.claude-code-router\config.json"
 
 
-Paste this Gemini-only config:
+Paste the following minimal Gemini config:
 
 {
   "LOG": true,
@@ -61,13 +69,11 @@ Paste this Gemini-only config:
 
 Save & close.
 
-✅ STEP 4 — Save Google API Key (USER level)
+✅ STEP 4 — Add your Google API Key
 [System.Environment]::SetEnvironmentVariable('GOOGLE_API_KEY', 'YOUR_KEY_HERE', 'User')
 
 
-⚠️ Close ALL PowerShell windows → reopen a new one.
-
-Verify:
+Restart PowerShell → verify:
 
 echo $env:GOOGLE_API_KEY
 
@@ -118,9 +124,9 @@ bash:
 echo 'export GOOGLE_API_KEY="YOUR_KEY_HERE"' >> ~/.bashrc
 source ~/.bashrc
 
-🌐 4. Fallback Providers (Gemini + OpenAI + Qwen + Grok + OpenRouter)
+🌐 4. Multi-Provider Fallback Setup (Optional)
 
-If you want multi-provider fallback, replace your config with this:
+Replace your config with this to enable Gemini + OpenAI + Qwen + Grok + OpenRouter:
 
 {
   "LOG": true,
@@ -181,7 +187,7 @@ If you want multi-provider fallback, replace your config with this:
   }
 }
 
-Set additional keys (Windows)
+Add extra keys (Windows)
 [System.Environment]::SetEnvironmentVariable('OPENAI_API_KEY','sk-xxxx','User')
 [System.Environment]::SetEnvironmentVariable('QWEN_API_KEY','qwen-xxxx','User')
 [System.Environment]::SetEnvironmentVariable('XAI_API_KEY','xai-xxxx','User')
@@ -204,7 +210,7 @@ Wait for:
 
 ✔ Service started successfully
 
-Terminal 2 — Use Claude Code
+Terminal 2 — Use Claude
 ccr code
 
 
@@ -214,20 +220,20 @@ eval "$(ccr activate)"
 claude
 
 
-Type:
+Test:
 
 hi
 
 
-If Claude responds → setup is working.
+If Claude responds → setup is correct.
 
-🧩 6. MCP Server Setup (Optional, for Tools/Extensions)
-Install MCP SDK (Python)
+🧩 6. MCP Server Setup (Optional)
+Install MCP SDK
 python -m venv .venv
 source .venv/bin/activate
 pip install modelcontextprotocol
 
-Minimal MCP server (save as mcp_server.py)
+Example MCP server (mcp_server.py)
 from modelcontextprotocol import FastMCP
 
 mcp = FastMCP()
@@ -245,23 +251,32 @@ Run:
 
 python mcp_server.py
 
-Connect to Claude / CCR
+Connect to Claude or CCR
 
-CCR supports injecting MCP servers using mcp_config.
-Most clients (Claude Desktop, Cursor, etc.) allow adding MCP servers via settings.
+CCR supports mcp_config to attach local or remote MCP servers.
+
+Tools become available to Claude Code sessions automatically when integrated.
 
 🔐 7. Security Checklist
 
-Never store API keys in config.json.
+Do NOT store API keys inside config.json. Always use environment variables.
 
-Always use env vars like $GOOGLE_API_KEY.
+Keep CCR running on 127.0.0.1 (default).
 
-Keep CCR bound to 127.0.0.1.
+Use only trusted MCP servers.
 
-Only install trusted MCP servers.
+Rotate API keys if you test unknown packages.
 
-Rotate keys if you tested third-party MCP packages.
+🎉 Setup Complete!
 
-🎉 DONE!
+You now have:
 
-Your Windows/Linux dual setup for Claude Code + CCR + Gemini + multi-provider fallback + MCP is complete.
+Claude Code working
+
+Claude-Code-Router configured
+
+Gemini as main model
+
+Optional fallback models (OpenAI, Qwen, Grok, OpenRouter)
+
+MCP server ready
