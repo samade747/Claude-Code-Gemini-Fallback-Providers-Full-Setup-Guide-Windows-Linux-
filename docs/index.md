@@ -525,6 +525,6 @@ You now have:
 <img src="https://gh-pixels.vercel.app/api/visitor?repo=samade747" />
 
 
-![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=samade747)
+![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
 
 
