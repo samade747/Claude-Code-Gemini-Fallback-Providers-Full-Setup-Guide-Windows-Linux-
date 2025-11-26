@@ -1,4 +1,3 @@
-README.md
 # 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
 ### Works on: **Windows (PowerShell)** + **Linux/macOS (bash/zsh)**  
 ### Includes: Claude-Code, Claude-Code-Router (CCR), Gemini, OpenAI, Qwen, Grok, OpenRouter & MCP Server Guide
@@ -11,37 +10,39 @@ README.md
   Check:  
   ```bash
   node --version
+  ```
+- npm (comes with Node.js)
+- API keys:
+  - Google Gemini → https://aistudio.google.com
+  - (Optional) OpenAI, Qwen, Grok (xAI), OpenRouter
+- Terminal:
+  - Windows → **PowerShell**
+  - Linux/macOS → **bash/zsh**
 
+---
 
-npm (comes with Node.js)
+# 🟦 2. Windows Setup (PowerShell)
 
-API keys:
-
-Google Gemini → https://aistudio.google.com
-
-(Optional) OpenAI, Qwen, Grok (xAI), OpenRouter
-
-Terminal:
-
-Windows → PowerShell
-
-Linux/macOS → bash/zsh
-
-🟦 2. Windows Setup (PowerShell)
-✅ STEP 1 — Install tools
+## ✅ STEP 1 — Install tools
+```powershell
 npm install -g @anthropic-ai/claude-code
 npm install -g @musistudio/claude-code-router
+```
 
-✅ STEP 2 — Create config folders
+## ✅ STEP 2 — Create config folders
+```powershell
 mkdir "$env:USERPROFILE\.claude-code-router"
 mkdir "$env:USERPROFILE\.claude"
+```
 
-✅ STEP 3 — Create config.json
+## ✅ STEP 3 — Create config.json
+```powershell
 notepad "$env:USERPROFILE\.claude-code-router\config.json"
+```
 
+Paste the following minimal **Gemini** config:
 
-Paste the following minimal Gemini config:
-
+```json
 {
   "LOG": true,
   "LOG_LEVEL": "info",
@@ -65,26 +66,36 @@ Paste the following minimal Gemini config:
     "longContextThreshold": 60000
   }
 }
-
+```
 
 Save & close.
 
-✅ STEP 4 — Add your Google API Key
+## ✅ STEP 4 — Add your Google API Key
+```powershell
 [System.Environment]::SetEnvironmentVariable('GOOGLE_API_KEY', 'YOUR_KEY_HERE', 'User')
-
+```
 
 Restart PowerShell → verify:
-
+```powershell
 echo $env:GOOGLE_API_KEY
+```
 
-🟧 3. Linux / macOS Setup
-Install tools
+---
+
+# 🟧 3. Linux / macOS Setup
+
+## Install tools
+```bash
 npm install -g @anthropic-ai/claude-code @musistudio/claude-code-router
+```
 
-Create folders
+## Create folders
+```bash
 mkdir -p ~/.claude-code-router ~/.claude
+```
 
-Create config.json
+## Create config.json
+```bash
 cat > ~/.claude-code-router/config.json << 'EOF'
 {
   "LOG": true,
@@ -110,24 +121,28 @@ cat > ~/.claude-code-router/config.json << 'EOF'
   }
 }
 EOF
+```
 
-Add API Key
-
+## Add API Key
 zsh:
-
+```bash
 echo 'export GOOGLE_API_KEY="YOUR_KEY_HERE"' >> ~/.zshrc
 source ~/.zshrc
-
+```
 
 bash:
-
+```bash
 echo 'export GOOGLE_API_KEY="YOUR_KEY_HERE"' >> ~/.bashrc
 source ~/.bashrc
+```
 
-🌐 4. Multi-Provider Fallback Setup (Optional)
+---
 
-Replace your config with this to enable Gemini + OpenAI + Qwen + Grok + OpenRouter:
+# 🌐 4. Multi-Provider Fallback Setup (Optional)
 
+Replace your config with this to enable **Gemini + OpenAI + Qwen + Grok + OpenRouter**:
+
+```json
 {
   "LOG": true,
   "LOG_LEVEL": "info",
@@ -186,54 +201,62 @@ Replace your config with this to enable Gemini + OpenAI + Qwen + Grok + OpenRout
     "longContextThreshold": 60000
   }
 }
+```
 
-Add extra keys (Windows)
+### Add extra keys (Windows)
+```powershell
 [System.Environment]::SetEnvironmentVariable('OPENAI_API_KEY','sk-xxxx','User')
 [System.Environment]::SetEnvironmentVariable('QWEN_API_KEY','qwen-xxxx','User')
 [System.Environment]::SetEnvironmentVariable('XAI_API_KEY','xai-xxxx','User')
 [System.Environment]::SetEnvironmentVariable('OPENROUTER_API_KEY','or-xxxx','User')
+```
 
-▶️ 5. Daily Usage
-Terminal 1 — Start router
+---
 
-Windows:
+# ▶️ 5. Daily Usage
 
+## Terminal 1 — Start router
+```powershell
 ccr start
-
-
-Linux:
-
+```
+or Linux:
+```bash
 ccr start
-
+```
 
 Wait for:
-
+```
 ✔ Service started successfully
+```
 
-Terminal 2 — Use Claude
+## Terminal 2 — Use Claude
+```bash
 ccr code
-
-
+```
 or:
-
+```bash
 eval "$(ccr activate)"
 claude
-
+```
 
 Test:
-
+```
 hi
+```
 
+---
 
-If Claude responds → setup is correct.
+# 🧩 6. MCP Server Setup (Optional)
 
-🧩 6. MCP Server Setup (Optional)
-Install MCP SDK
+## Install MCP SDK
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install modelcontextprotocol
+```
 
-Example MCP server (mcp_server.py)
+## Example MCP server (`mcp_server.py`)
+```python
 from modelcontextprotocol import FastMCP
 
 mcp = FastMCP()
@@ -241,42 +264,34 @@ mcp = FastMCP()
 @mcp.tool()
 async def list_files(path: str = "."):
     import os
-    return "\n".join(os.listdir(path))
+    return "
+".join(os.listdir(path))
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")
-
+```
 
 Run:
-
+```bash
 python mcp_server.py
+```
 
-Connect to Claude or CCR
+---
 
-CCR supports mcp_config to attach local or remote MCP servers.
+# 🔐 7. Security Checklist
+- Use environment variables; **never** store API keys in config.json.
+- Keep CCR on `127.0.0.1`.
+- Use only trusted MCP servers.
+- Rotate API keys when unsure.
 
-Tools become available to Claude Code sessions automatically when integrated.
+---
 
-🔐 7. Security Checklist
-
-Do NOT store API keys inside config.json. Always use environment variables.
-
-Keep CCR running on 127.0.0.1 (default).
-
-Use only trusted MCP servers.
-
-Rotate API keys if you test unknown packages.
-
-🎉 Setup Complete!
-
+# 🎉 Setup Complete!
 You now have:
+- Claude Code  
+- Claude Router  
+- Gemini  
+- Multi-provider fallback  
+- MCP server support  
 
-Claude Code working
-
-Claude-Code-Router configured
-
-Gemini as main model
-
-Optional fallback models (OpenAI, Qwen, Grok, OpenRouter)
-
-MCP server ready
+Need an auto-installer script? Just ask!
