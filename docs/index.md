@@ -522,3 +522,6 @@ You now have:
 - MCP server support  
 
 
+<img src="https://gh-pixels.vercel.app/api/visitor?repo=samade747/Claude-Code-Gemini-Fallback-Providers" />
+
+
