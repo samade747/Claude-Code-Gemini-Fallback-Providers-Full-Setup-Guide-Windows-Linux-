@@ -177,7 +177,7 @@
         <a href="#guide">Guide</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a> ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)</a>
+       ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
       </div>
 
       <!-- social links -->
@@ -523,7 +523,7 @@ You now have:
 - MCP server support  
 
 
-<img src="https://gh-pixels.vercel.app/api/visitor?repo=samade747" />
+
 
 
 ![Profile Views](https://komarev.com/ghpvc/?username=samade747&style=flat-square)
