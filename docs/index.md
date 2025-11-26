@@ -1,3 +1,24 @@
+<!-- HEADER SECTION (BLACK THEME) -->
+<header style="text-align:center; padding: 40px 10px; background:#000; border-bottom: 2px solid #222;">
+    <h1 style="margin:0; font-size: 42px; font-weight:700; color:#fff;">
+        Samad
+    </h1>
+
+    <p style="margin:14px 0; font-size:20px;">
+        <a href="https://github.com/samade747" target="_blank" 
+           style="text-decoration:none; color:#4da6ff; font-weight:600;">
+            GitHub
+        </a>
+        &nbsp;•&nbsp;
+        <a href="https://www.linkedin.com/in/samaddeveloper-aiagents-developer/" target="_blank" 
+           style="text-decoration:none; color:#4da6ff; font-weight:600;">
+            LinkedIn
+        </a>
+    </p>
+</header>
+
+
+
 
 # 🚀 Claude Code + Gemini + Fallback Providers — Full Setup Guide  
 ### Works on: **Windows (PowerShell)** + **Linux/macOS (bash/zsh)**  
