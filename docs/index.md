@@ -521,4 +521,4 @@ You now have:
 - Multi-provider fallback  
 - MCP server support  
 
-Need an auto-installer script? Just ask!
+
