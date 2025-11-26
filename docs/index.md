@@ -522,9 +522,9 @@ You now have:
 - MCP server support  
 
 
-<img src="https://gh-pixels.vercel.app/api/visitor?repo=samade747/Claude-Code-Gemini-Fallback-Providers" />
+<img src="https://gh-pixels.vercel.app/api/visitor?repo=samade747" />
 
 
-![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=samade747.Claude-Code-Gemini-Fallback-Providers)
+![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=samade747)
 
 
