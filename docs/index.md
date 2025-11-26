@@ -1,5 +1,5 @@
 <!-- HEADER SECTION (BLACK THEME) -->
-<header style="text-align:center; padding: 40px 10px; background:#000; border-bottom: 2px solid #222;">
+<div style="text-align:center; padding: 40px 10px; background:#000; border-bottom: 2px solid #222;">
     <h1 style="margin:0; font-size: 42px; font-weight:700; color:#fff;">
         Samad
     </h1>
@@ -15,7 +15,7 @@
             LinkedIn
         </a>
     </p>
-</header>
+</div>
 
 
 
